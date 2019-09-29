@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radioGroupMessages"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/messages_tab_height_size"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbtnFriends"
+            style="@style/AppTextStyle.MessageTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/friends"
+            android:textColor="?attr/color_text_default" />
+
+        <RadioButton
+            android:id="@+id/rbtnRooms"
+            style="@style/AppTextStyle.MessageTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/rooms"
+            android:textColor="?attr/color_text_default" />
+
+        <RadioButton
+            android:id="@+id/rbtnCommunity"
+            style="@style/AppTextStyle.MessageTabs"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/community"
+            android:textColor="?attr/color_text_default" />
+
+        <RadioButton
+            android:id="@+id/rbtnFavorites"
+            style="@style/AppTextStyle.MessageTabs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/favorites"
+            android:textColor="?attr/color_text_default" />
+    </RadioGroup>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupMessages" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <ImageButton
+        android:id="@+id/imgbtnWriteMessage"
+        android:layout_width="@dimen/add_post_btn_size"
+        android:layout_height="@dimen/add_post_btn_size"
+        android:layout_marginBottom="24dp"
+        android:alpha="0.9"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_write_message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20" />
+</androidx.constraintlayout.widget.ConstraintLayout>

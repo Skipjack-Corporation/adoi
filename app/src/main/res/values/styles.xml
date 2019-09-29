@@ -1,0 +1,195 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">?attr/color_accent</item>
+        <item name="editTextStyle">@style/AppTextStyle.Edit</item>
+        <item name="android:textViewStyle">@style/AppTextStyle</item>
+        <item name="buttonStyle">@style/AppButtonStyle</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">?attr/color_accent</item>
+        <item name="editTextStyle">@style/AppTextStyle.Edit</item>
+        <item name="android:textViewStyle">@style/AppTextStyle</item>
+        <item name="buttonStyle">@style/AppButtonStyle</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="windowActionBarOverlay">false</item>
+    </style>
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+    </style>
+
+    <!--Text and Edit Style-->
+    <style name="AppTextStyle">
+        <item name="android:fontFamily">@font/font_opensans_light</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textColor">?attr/color_text_default</item>
+    </style>
+    <style name="AppTextStyle.Header" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_rajdhani_medium</item>
+        <item name="android:textSize">@dimen/textsize_xlarge</item>
+    </style>
+    <style name="AppTextStyle.Header.Medium" parent="AppTextStyle.Header">
+        <item name="android:textSize">@dimen/textsize_large</item>
+    </style>
+    <style name="AppTextStyle.Normal" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+    </style>
+    <style name="AppTextStyle.Small" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+    </style>
+    <style name="AppTextStyle.Small.Bold" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_myriadpro_bold</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+    </style>
+    <style name="AppTextStyle.Small.Trans50" parent="AppTextStyle">>
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:alpha">0.5</item>
+    </style>
+    <style name="AppTextStyle.Medium" parent="AppTextStyle">
+        <item name="android:textSize">@dimen/textsize_medium</item>
+
+    </style>
+    <style name="AppTextStyle.Large" parent="AppTextStyle">
+        <item name="android:textSize">@dimen/textsize_large</item>
+    </style>
+    <style name="AppTextStyle.ForgotPassword" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:text">@string/Forgot_Password</item>
+        <item name="android:alpha">0.5</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="AppTextStyle.MessageTabs" parent="AppTextStyle.Small.Bold">
+        <item name="android:button">@null</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:background">@drawable/selector_message_tab</item>
+    </style>
+
+
+    <style name="AppTextStyle.Edit" parent="AppTextStyle">
+        <item name="android:minHeight">45dp</item>
+        <item name="android:textSize">@dimen/textsize_large</item>
+        <item name="android:textColorHint">?attr/color_hint_default</item>
+        <item name="android:background">@drawable/selector_edittext</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:gravity">center</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <style name="AppTextStyle.Edit.Search" parent="AppTextStyle.Edit">
+        <item name="android:textSize">@dimen/textsize_medium</item>
+        <item name="android:textColorHint">?attr/color_text_default</item>
+        <item name="android:background">@drawable/selector_search_field</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:drawableEnd">@drawable/ic_search</item>
+        <item name="android:drawableTint">?attr/color_text_default</item>
+    </style>
+    <style name="AppTextStyle.Edit.VerifyCode" parent="AppTextStyle.Edit">
+        <item name="android:minHeight">45dp</item>
+        <item name="android:textSize">@dimen/textsize_xlarge</item>
+        <item name="android:textColorHint">?attr/color_hint_default</item>
+        <item name="android:background">@drawable/selector_edittext_verifcode</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTextStyle.Edit.WritePost" parent="AppTextStyle.Edit">
+        <item name="android:background">@drawable/selector_write_post</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:minHeight">@dimen/write_post_height_size</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="AppTextStyle.Message.Name" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_myriadpro_bold</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
+        <item name="android:textColor">?color_message_sender_name</item>
+    </style>
+    <style name="AppTextStyle.Message.Date" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textColor">?attr/color_message_sender_date</item>
+    </style>
+    <style name="AppTextStyle.Message.Content" parent="AppTextStyle">
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textColor">?attr/color_message_sender_content</item>
+    </style>
+    <style name="AppTextStyle.Message.Name.Receiver" parent="AppTextStyle.Message.Name">
+        <item name="android:fontFamily">@font/font_myriadpro_bold</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
+        <item name="android:textColor">?color_message_receiver_name</item>
+    </style>
+    <style name="AppTextStyle.Message.Date.Receiver" parent="AppTextStyle.Message.Date">
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textColor">?attr/color_message_receiver_date</item>
+    </style>
+    <style name="AppTextStyle.Message.Content.Receiver" parent="AppTextStyle.Message.Content">
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textColor">?attr/color_message_receiver_content</item>
+    </style>
+    <!--Button Style-->
+    <style name="AppButtonStyle">
+        <item name="android:minHeight">40dp</item>
+        <item name="android:fontFamily">@font/font_blenderpro_medium</item>
+        <item name="android:background">@drawable/selector_btn_default</item>
+        <item name="android:textColor">?color_text_button_default</item>
+        <item name="android:textSize">@dimen/textsize_large</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="AppButtonStyle.Fill" parent="AppButtonStyle">
+        <item name="android:background">@drawable/selector_btn_fill_default</item>
+        <item name="android:textColor">?attr/color_text_button_fill_default</item>
+    </style>
+    <style name="AppButtonStyle.Post" parent="AppTextStyle">
+        <item name="android:minHeight">@dimen/post_option_height_size</item>
+        <item name="android:background">@drawable/selector_post_option_bg</item>
+        <item name="android:textColor">?attr/color_text_default</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+    </style>
+
+    <style name="AppButtonStyle.Send" parent="AppButtonStyle">
+        <item name="android:fontFamily">@font/font_rajdhani_semibold</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@drawable/selector_message_send</item>
+    </style>
+
+
+    <!--Spinner style-->
+    <style name="AppSpinnerStyle">
+        <item name="android:minHeight">24dp</item>
+        <item name="android:minWidth">@dimen/dropdown_width_size</item>
+        <item name="android:fontFamily">@font/font_myriadpro_regular</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textColor">?attr/color_text_default</item>
+        <item name="android:background">@drawable/selector_spinner_bg</item>
+    </style>
+</resources>

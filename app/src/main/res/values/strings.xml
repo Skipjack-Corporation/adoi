@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Adoi</string>
+    <string name="Welcome_Back">Welcome Back</string>
+    <string name="Forgot_Password"><u>Forgot Password</u></string>
+    <string name="login_with_adoi_account">Login with Adoi Account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="make_an_account">Make an Account</string>
+    <string name="network_fail_message">You are not connected to a network.Please your connection and try again.</string>
+    <string name="empty_field_message">Required field is empty.</string>
+    <string name="register">Register</string>
+    <string name="your_password_must_be_atleast_7_characters_long">Your Password must be atleast 7 characters long</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="invalid_email">You have input invalid email.</string>
+    <string name="email_mismatch">Email mismatch.</string>
+    <string name="password_mismatch">Password mismatch.</string>
+    <string name="Success">Success</string>
+    <string name="username">Username</string>
+    <string name="search">Search</string>
+    <string name="this_makes_it_easier_to_connect_with_people_and_keep_bots_and_fake_accounts_out">This makes it easier to connect with people \n and keep bots and fake accounts out</string>
+    <string name="verify_your_mobile_number">Verify Your Mobile Number</string>
+    <string name="you_should_be_receiving_a_message_shortly_if_not_click_here_to_resend">You should be receiving a message shortly, \n if not <u>Click here to Resend</u></string>
+    <string name="enter_verificationcode">Enter VerificationCode</string>
+    <string name="choose_a_photo_and_write_something_on_your_bio">Choose a photo and write \nsomething on your bio</string>
+    <string name="next">Next</string>
+    <string name="name">Name</string>
+    <string name="bio">Bio</string>
+    <string name="optional_150">(Optional) 150</string>
+    <string name="drag_crop"><![CDATA[Drag & Crop]]></string>
+    <string name="by_using_this_app_you_agree_to_adoi_s_terms_of_use_and_privacy_policy">By using this app you agree to Adoi’s \n <b><u> Terms of Use and Privacy Policy</u></b></string>
+    <string name="save">Save</string>
+    <string name="enable_access">ENABLE ACCESS</string>
+    <string name="allow_access_to_your_camera_and_photo_library">Allow access to your camera and photo library</string>
+    <string name="or">or</string>
+    <string name="upload">Upload</string>
+    <string name="take_a_photo">Take A Photo</string>
+    <string name="_1m_7s">1m 7s</string>
+    <string name="_63">+63</string>
+    <string name="skip"><u>Skip</u></string>
+    <string name="find_who_are_using_adoi_by_using_your_contacts">Find who are using Adoi by using your contacts.</string>
+    <string name="add_connections">Add Connections</string>
+    <string name="create_a_post">Create a post</string>
+    <string name="say_something_to_the_world">Say something to the world</string>
+    <string name="display_message_here_messagefield">Display message here <b>#messagefield</b></string>
+    <string name="friends">Friends</string>
+    <string name="rooms">Rooms</string>
+    <string name="community">Community</string>
+    <string name="favorites">Favorites</string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
+    <string name="username_or_email">Username or Email</string>
+
+    <string name="push_server_url" translatable="false" />
+
+    <!-- unrecognized SSL certificate -->
+    <string name="ssl_trust">Trust</string>
+    <string name="ssl_do_not_trust">Do not trust</string>
+    <string name="ssl_logout_account">Logout</string>
+    <string name="ssl_remain_offline">Ignore</string>
+    <string name="ssl_fingerprint_hash">Fingerprint (%s):</string>
+    <string name="ssl_could_not_verify">Could not verify identity of remote server.</string>
+    <string name="ssl_cert_not_trust">This could mean that someone is maliciously intercepting your traffic, or that your phone does not trust the certificate provided by the remote server.</string>
+    <string name="ssl_cert_new_account_expl">If the server administrator has said that this is expected, ensure that the fingerprint below matches the fingerprint provided by them.</string>
+    <string name="ssl_unexpected_existing_expl">The certificate has changed from one that was trusted by your phone. This is HIGHLY UNUSUAL. It is recommended that you DO NOT ACCEPT this new certificate.</string>
+    <string name="ssl_expected_existing_expl">The certificate has changed from a previously trusted one to one that is not trusted. The server may have renewed its certificate. Contact the server administrator for the expected fingerprint.</string>
+    <string name="ssl_only_accept">Only accept the certificate if the server administrator has published a fingerprint that matches the one above.</string>
+
+
+    <string name="generic_label_and_value">%1$s: %2$s</string>
+    <string name="hs_url">Home Server URL</string>
+    <string name="cancel">Cancel</string>
+</resources>

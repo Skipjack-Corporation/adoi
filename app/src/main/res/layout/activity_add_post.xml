@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".post.AddPostActivity"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/color_actionbar_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="16dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="32dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_logo_small" />
+
+            <TextView
+                android:id="@+id/textView14"
+                style="@style/AppTextStyle.Header.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:drawableStart="@drawable/ic_back_small"
+                android:drawablePadding="8dp"
+                android:text="@string/create_a_post"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline18"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.92" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/layout_post_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Display name"
+        app:layout_constraintStart_toEndOf="@+id/include2"
+        app:layout_constraintTop_toTopOf="@+id/include2" />
+
+    <Spinner
+        android:id="@+id/spinnerShareStatus"
+        style="@style/AppSpinnerStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@+id/include2"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <Spinner
+        android:id="@+id/spinnerTag"
+        style="@style/AppSpinnerStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/spinnerShareStatus"
+        app:layout_constraintTop_toTopOf="@+id/spinnerShareStatus" />
+
+    <EditText
+        android:id="@+id/editWrite"
+        style="@style/AppTextStyle.Edit.WritePost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="start|top"
+        android:hint="@string/say_something_to_the_world"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5060827" />
+
+    <Button
+        android:id="@+id/btnCamera"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline19"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/editWrite" />
+
+    <Button
+        android:id="@+id/btnPhotoVideo"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/btnCamera" />
+
+    <Button
+        android:id="@+id/btnMusic"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline19"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/btnCamera" />
+
+    <Button
+        android:id="@+id/btnLink"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline19"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/btnMusic" />
+
+    <Button
+        android:id="@+id/btnBook"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline19"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/btnLink" />
+
+    <Button
+        android:id="@+id/btnMovieTv"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/btnPhotoVideo" />
+
+    <Button
+        android:id="@+id/btnCheckIn"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/btnMovieTv" />
+
+    <Button
+        android:id="@+id/btnFeeling"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/btnCheckIn" />
+
+    <Button
+        android:id="@+id/btnRecommendation"
+        style="@style/AppButtonStyle.Post"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/btnBook" />
+
+    <Button
+        android:id="@+id/btnSharePost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Share Post"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/btnRecommendation" />
+
+    <ImageButton
+        android:id="@+id/imgbtnClosePost"
+        android:layout_width="@dimen/add_post_btn_size"
+        android:layout_height="@dimen/add_post_btn_size"
+        android:layout_marginBottom="24dp"
+        android:alpha="0.9"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_close_post"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_camera_fill"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="Camera"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCamera"
+        app:layout_constraintEnd_toEndOf="@+id/btnCamera"
+        app:layout_constraintStart_toStartOf="@+id/btnCamera"
+        app:layout_constraintTop_toTopOf="@+id/btnCamera" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_gallery"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="Photo / Video"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPhotoVideo"
+        app:layout_constraintEnd_toEndOf="@+id/btnPhotoVideo"
+        app:layout_constraintStart_toStartOf="@+id/btnPhotoVideo"
+        app:layout_constraintTop_toTopOf="@+id/btnPhotoVideo" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_music"
+        android:text="Music"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMusic"
+        app:layout_constraintEnd_toEndOf="@+id/btnMusic"
+        app:layout_constraintStart_toStartOf="@+id/btnMusic"
+        app:layout_constraintTop_toTopOf="@+id/btnMusic" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_movie"
+        android:text="Movie / TV"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMovieTv"
+        app:layout_constraintEnd_toEndOf="@+id/btnMovieTv"
+        app:layout_constraintStart_toStartOf="@+id/btnMovieTv"
+        app:layout_constraintTop_toTopOf="@+id/btnMovieTv" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:drawableStart="@drawable/ic_link"
+        android:drawablePadding="4dp"
+        android:text="Link"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLink"
+        app:layout_constraintEnd_toEndOf="@+id/btnLink"
+        app:layout_constraintStart_toStartOf="@+id/btnLink"
+        app:layout_constraintTop_toTopOf="@+id/btnLink" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:drawableStart="@drawable/ic_location"
+        android:text="Check-In"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCheckIn"
+        app:layout_constraintEnd_toEndOf="@+id/btnCheckIn"
+        app:layout_constraintStart_toStartOf="@+id/btnCheckIn"
+        app:layout_constraintTop_toTopOf="@+id/btnCheckIn" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:drawableStart="@drawable/ic_book"
+        android:text="Book"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBook"
+        app:layout_constraintEnd_toEndOf="@+id/btnBook"
+        app:layout_constraintStart_toStartOf="@+id/btnBook"
+        app:layout_constraintTop_toTopOf="@+id/btnBook" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="Feeling"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_feeling"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFeeling"
+        app:layout_constraintEnd_toEndOf="@+id/btnFeeling"
+        app:layout_constraintStart_toStartOf="@+id/btnFeeling"
+        app:layout_constraintTop_toTopOf="@+id/btnFeeling" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ask for recommendations"
+        android:drawableStart="@drawable/ic_recommendation"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRecommendation"
+        app:layout_constraintEnd_toEndOf="@+id/btnRecommendation"
+        app:layout_constraintStart_toStartOf="@+id/btnRecommendation"
+        app:layout_constraintTop_toTopOf="@+id/btnRecommendation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

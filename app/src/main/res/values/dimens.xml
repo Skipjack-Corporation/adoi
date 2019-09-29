@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textsize_small">12sp</dimen>
+    <dimen name="textsize_normal">14sp</dimen>
+    <dimen name="textsize_medium">16sp</dimen>
+    <dimen name="textsize_large">18sp</dimen>
+    <dimen name="textsize_xlarge">24sp</dimen>
+    <dimen name="textsize_xxlarge">32sp</dimen>
+
+    <dimen name="img_post_size">50dp</dimen>
+    <dimen name="img_msg_avatar_size">32dp</dimen>
+    <dimen name="post_status_dot_border">2dp</dimen>
+    <dimen name="post_status_dot_size">15dp</dimen>
+
+    <dimen name="add_post_btn_size">50dp</dimen>
+    <dimen name="write_post_height_size">150dp</dimen>
+    <dimen name="post_option_height_size">40dp</dimen>
+    <dimen name="dropdown_width_size">100dp</dimen>
+    <dimen name="messages_tab_height_size">40dp</dimen>
+    <dimen name="more_profpic_size">130dp</dimen>
+</resources>

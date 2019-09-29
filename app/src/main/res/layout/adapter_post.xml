@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="24dp">
+
+    <Button
+        android:id="@+id/btnShare"
+        style="@style/AppTextStyle.Small.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/selector_share"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/btnComment"
+        app:layout_constraintTop_toBottomOf="@+id/textPostMessage" />
+
+    <Button
+        android:id="@+id/btnHeart"
+        style="@style/AppTextStyle.Small.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/selector_heart"
+        android:text="1"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/textPostMessage" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <include
+        android:id="@+id/include"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_post_avatar"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline16"/>
+
+    <TextView
+        android:id="@+id/textDisplayname"
+        style="@style/AppTextStyle.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Display name"
+        app:layout_constraintStart_toEndOf="@+id/include"
+        app:layout_constraintTop_toTopOf="@+id/guideline16" />
+
+    <TextView
+        android:id="@+id/textDate"
+        style="@style/AppTextStyle.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5:00 PM"
+        app:layout_constraintStart_toStartOf="@+id/textDisplayname"
+        app:layout_constraintTop_toBottomOf="@+id/textDisplayname" />
+
+    <ImageButton
+        android:id="@+id/imgbtnMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/guideline16"
+        app:srcCompat="@drawable/selector_post_more" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnMore"
+        app:layout_constraintTop_toTopOf="@+id/guideline16"
+        app:srcCompat="@drawable/selector_bookmark" />
+
+    <com.skipjack.adoi.view.AppImageView
+        android:id="@+id/imgPostPic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_example_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
+
+    <TextView
+        android:id="@+id/textPostMessage"
+        style="@style/AppTextStyle.Normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/display_message_here_messagefield"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/imgPostPic" />
+
+    <Button
+        android:id="@+id/btnComment"
+        style="@style/AppTextStyle.Small.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/selector_comments"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/btnHeart"
+        app:layout_constraintTop_toBottomOf="@+id/textPostMessage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

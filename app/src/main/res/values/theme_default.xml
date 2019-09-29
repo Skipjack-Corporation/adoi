@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.Default" parent="AppTheme.NoActionBar">
+        <item name="color_default">#FFFFFF</item>
+        <item name="color_default_dark">#000000</item>
+        <item name="color_accent">#00c1ff</item>
+
+        <item name="colorAccent">?attr/color_accent</item>
+
+        <item name="color_text_default">@android:color/white</item>
+        <item name="color_hint_default">#80ffffff</item>
+        <item name="color_text_button_default">@android:color/white</item>
+        <item name="color_text_button_fill_default">@android:color/black</item>
+        <item name="color_statusbar_main">#0f1a2a</item>
+        <item name="color_actionbar_main">#101d2e</item>
+        <item name="android:windowBackground">@drawable/ic_screen_bg</item>
+
+        <!--trans 50%-->
+        <item name="color_searchbar_main">#80000000</item>
+
+        <!--trans 20%-->
+        <item name="color_searchfield_main">#33ffffff</item>
+
+        <!--trans 30%-->
+        <item name="color_searchscreen_bg">#4d000000</item>
+
+        <!--trans 40%-->
+        <item name="color_tab_default">#66000000</item>
+
+        <item name="color_edit_bg">#80FFFFFF</item>
+
+        <item name="color_postscreen_bg">#12000000</item>
+        <item name="color_post_add_border">#A6FFFFFF</item>
+
+        <item name="color_status_online">#00ff00</item>
+        <item name="color_status_offline">#c3c3c3</item>
+        <item name="color_status_idle">#ffff00</item>
+        <item name="color_status_donotdisturb">#ff0000</item>
+
+        <item name="color_message_tab_bg">#66000000</item>
+        <item name="color_unread_message_bg">#18cd36</item>
+
+        <item name="color_message_detail_bg">?attr/color_accent</item>
+
+        <item name="color_message_sender_name">?attr/color_default</item>
+        <item name="color_message_sender_date">?attr/color_default</item>
+        <item name="color_message_sender_content">?attr/color_default_dark</item>
+
+        <item name="color_message_receiver_name">#00c2ff</item>
+        <item name="color_message_receiver_date">#00c2ff</item>
+        <item name="color_message_receiver_content">?attr/color_default</item>
+
+        <item name="color_message_send">#00c2ff</item>
+        <item name="color_last_display_message">#00c2ff</item>
+
+
+    </style>
+</resources>

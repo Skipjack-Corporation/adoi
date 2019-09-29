@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AdoiStyle">
+        <attr name="color_accent" format="color"/>
+        <attr name="color_default" format="color"/>
+        <attr name="color_default_dark" format="color"/>
+
+        <attr name="color_text_default" format="color"/>
+        <attr name="color_hint_default" format="color"/>
+        <attr name="color_edit_bg" format="color"/>
+        <attr name="color_text_button_default" format="color"/>
+        <attr name="color_text_button_fill_default" format="color"/>
+
+        <attr name="color_tab_default" format="color"/>
+
+        <attr name="color_statusbar_main" format="color"/>
+        <attr name="color_actionbar_main" format="color"/>
+
+        <attr name="color_searchbar_main" format="color"/>
+        <attr name="color_searchfield_main" format="color"/>
+
+        <attr name="color_searchscreen_bg" format="color"/>
+
+        <attr name="color_postscreen_bg" format="color"/>
+        <attr name="color_post_add_border" format="color"/>
+
+        <attr name="color_status_online" format="color"/>
+        <attr name="color_status_offline" format="color"/>
+        <attr name="color_status_donotdisturb" format="color"/>
+        <attr name="color_status_idle" format="color"/>
+
+        <attr name="color_message_tab_bg" format="color"/>
+        <attr name="color_unread_message_bg" format="color"/>
+        <attr name="color_message_detail_bg" format="color"/>
+
+
+        <attr name="color_message_sender_name" format="color"/>
+        <attr name="color_message_sender_date" format="color"/>
+        <attr name="color_message_sender_content" format="color"/>
+
+        <attr name="color_message_receiver_name" format="color"/>
+        <attr name="color_message_receiver_date" format="color"/>
+        <attr name="color_message_receiver_content" format="color"/>
+
+        <attr name="color_message_send" format="color"/>
+
+        <attr name="color_last_display_message" format="color"/>
+
+
+    </declare-styleable>
+</resources>

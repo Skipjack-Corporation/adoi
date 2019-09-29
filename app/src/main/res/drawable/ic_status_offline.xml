@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <size android:height="@dimen/post_status_dot_size" android:width="@dimen/post_status_dot_size"/>
+    <solid android:color="?attr/color_status_offline"/>
+    <stroke android:color="@android:color/white" android:width="@dimen/post_status_dot_border"/>
+
+</shape>
