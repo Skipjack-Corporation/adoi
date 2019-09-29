@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.matrix-org.matrix-android-sdk:matrix-sdk-crypto:v0.9.26@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cbac8daa2ad23d68181469eb364adaea/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cbac8daa2ad23d68181469eb364adaea/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.matrix-org.matrix-android-sdk/matrix-sdk-crypto/v0.9.26/ea679029a93363838318116e2a10798a7250887a/matrix-sdk-crypto-v0.9.26-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

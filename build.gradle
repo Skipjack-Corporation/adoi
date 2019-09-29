@@ -1,0 +1,64 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath 'com.google.gms:google-services:4.3.2'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.0'
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+
+        maven {
+            url 'https://jitpack.io'
+
+            content {
+                // Use this repo only for matrix SDK library
+                includeGroupByRegex "com\\.github\\.matrix-org"
+                // Also add subgroups, due to SDK split into modules
+                includeGroupByRegex "com\\.github\\.matrix-org\\.matrix-android-sdk"
+                // And Olm library
+                includeGroupByRegex "org\\.matrix\\.gitlab\\.matrix-org"
+                // And PhotoView
+                includeGroupByRegex "com\\.github\\.chrisbanes"
+            }
+        }
+        maven {
+            url "https://maven.google.com"
+        }
+        jcenter()
+        // Jitsi repo
+        maven {
+            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
+        }
+
+    }
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+//if (findProject(':matrix-sdk') != null) {
+//    project(":matrix-sdk") {
+//        sonarqube {
+//            skipProject = true
+//        }
+//    }
+//}

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.matrix-org.matrix-android-sdk:matrix-sdk-core:v0.9.26@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/445036c3d12b824e0ba58e7dd18d2512/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/445036c3d12b824e0ba58e7dd18d2512/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.matrix-org.matrix-android-sdk/matrix-sdk-core/v0.9.26/f9ff44502458b5eb8ea829931c5f38afcdb91f94/matrix-sdk-core-v0.9.26-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

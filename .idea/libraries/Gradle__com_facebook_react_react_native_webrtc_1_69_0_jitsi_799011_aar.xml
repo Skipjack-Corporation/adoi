@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.facebook.react:react-native-webrtc:1.69.0-jitsi-799011@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/82d93783a57c6950cfd305eeeeaa0194/jars/libs/libwebrtc.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/82d93783a57c6950cfd305eeeeaa0194/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/82d93783a57c6950cfd305eeeeaa0194/jars/libs/libjingle_peerconnection.so.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/82d93783a57c6950cfd305eeeeaa0194/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.react/react-native-webrtc/1.69.0-jitsi-799011/406137bb8bd66eb3b4c010d463e18746f7a1c21a/react-native-webrtc-1.69.0-jitsi-799011-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
