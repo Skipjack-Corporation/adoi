@@ -1,6 +1,9 @@
 package com.skipjack.adoi.base;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Window;
@@ -11,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.skipjack.adoi.R;
 
 import butterknife.ButterKnife;
+import support.skipjack.adoi.repository.CallRespository;
 
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
@@ -25,9 +29,39 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         this.saveInstance = savedInstanceState;
         setContentView(getLayoutResource());
         ButterKnife.bind(this);
+
+        BaseApplication.setCurrentActivity(this);
         onCreate();
+        CallRespository.get().isAppAlive = true;
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        CallRespository.get().isAppAlive = false;
+    }
+
+    /**
+     * BroadcastReceiver
+     * */
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+        }
+    };
+
     /**
      * Initialize and show progressdialog
      * */

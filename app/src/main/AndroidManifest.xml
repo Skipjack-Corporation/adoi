@@ -1,26 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.skipjack.adoi">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- universal links management -->
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <!-- for android 4.1.* devices, reported by GA -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- videocall permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- required on android 6.0.0 devices -->
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- shared files from external application -->
+    <uses-permission
+        android:name="android.permission.MANAGE_DOCUMENTS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- to be able to turn on display when a notification is received -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- start the background sync on boot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- disable the battery optimisation on some devices to let the background sync works -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- videocall feature -->
+    <!-- android.permission.CAMERA defines android.hardware.camera -->
     <uses-feature
         android:name="android.hardware.camera"
+        android:required="false"
+        tools:replace="required" />
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="false"
+        tools:replace="required" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"
+        tools:replace="required" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="false"
+        tools:replace="required" />
+
+    <!-- android.permission.RECORD_AUDIO defines android.hardware.microphone -->
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false"
+        tools:replace="required" />
+
+    <!-- ShortcutBadger permissions -->
+    <!-- for Samsung -->
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+    <!-- for htc -->
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+    <!-- for sony -->
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
+    <!-- for apex -->
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
+    <!-- for solid -->
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+    <!-- for huawei -->
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+    <!-- for ZUK -->
+    <uses-permission android:name="android.permission.READ_APP_BADGE" />
+    <!-- for OPPO -->
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+    <!-- for EvMe -->
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+
+    <!-- bluetooth headset -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false"
+        tools:replace="required" />
+
+    <!-- jitsi -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
         android:required="false" />
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
+    <!--<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" /> &lt;!&ndash; videocall permissions &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.CAMERA" />-->
+    <!--<uses-permission android:name="android.permission.RECORD_AUDIO" />-->
+    <!--<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> &lt;!&ndash; required on android 6.0.0 devices &ndash;&gt;-->
+    <!--<uses-permission-->
+        <!--android:name="android.permission.WRITE_SETTINGS"-->
+        <!--tools:ignore="ProtectedPermissions" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> &lt;!&ndash; shared files from external application &ndash;&gt;-->
+    <!--<uses-permission-->
+        <!--android:name="android.permission.MANAGE_DOCUMENTS"-->
+        <!--tools:ignore="ProtectedPermissions" /> &lt;!&ndash; to be able to turn on display when a notification is received &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.WAKE_LOCK" /> &lt;!&ndash; start the background sync on boot &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> &lt;!&ndash; disable the battery optimisation on some devices to let the background sync works &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />-->
+
+    <!--&lt;!&ndash; videocall feature &ndash;&gt;-->
+    <!--&lt;!&ndash; android.permission.CAMERA defines android.hardware.camera &ndash;&gt;-->
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.camera"-->
+        <!--android:required="false"-->
+        <!--tools:replace="required" />-->
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.camera.any"-->
+        <!--android:required="false"-->
+        <!--tools:replace="required" />-->
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.camera.autofocus"-->
+        <!--android:required="false"-->
+        <!--tools:replace="required" />-->
+    <!--<uses-feature-->
+        <!--android:glEsVersion="0x00020000"-->
+        <!--android:required="false"-->
+        <!--tools:replace="required" />-->
+
+    <!--&lt;!&ndash; android.permission.RECORD_AUDIO defines android.hardware.microphone &ndash;&gt;-->
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.microphone"-->
+        <!--android:required="false"-->
+        <!--tools:replace="required" />-->
+
+    <!--&lt;!&ndash; ShortcutBadger permissions &ndash;&gt;-->
+    <!--&lt;!&ndash; for Samsung &ndash;&gt;-->
+    <!--<uses-permission android:name="com.sec.android.provider.badge.permission.READ" />-->
+    <!--<uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />-->
+    <!--&lt;!&ndash; for htc &ndash;&gt;-->
+    <!--<uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />-->
+    <!--<uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />-->
+    <!--&lt;!&ndash; for sony &ndash;&gt;-->
+    <!--<uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />-->
+    <!--<uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />-->
+    <!--&lt;!&ndash; for apex &ndash;&gt;-->
+    <!--<uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />-->
+    <!--&lt;!&ndash; for solid &ndash;&gt;-->
+    <!--<uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />-->
+    <!--&lt;!&ndash; for huawei &ndash;&gt;-->
+    <!--<uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />-->
+    <!--<uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />-->
+    <!--<uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />-->
+    <!--&lt;!&ndash; for ZUK &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.READ_APP_BADGE" />-->
+    <!--&lt;!&ndash; for OPPO &ndash;&gt;-->
+    <!--<uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />-->
+    <!--<uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />-->
+    <!--&lt;!&ndash; for EvMe &ndash;&gt;-->
+    <!--<uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />-->
+    <!--<uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />-->
+
+    <!--&lt;!&ndash; bluetooth headset &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />-->
+    <!--<uses-permission android:name="android.permission.BLUETOOTH" />-->
+    <!--<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.bluetooth"-->
+        <!--android:required="false"-->
+        <!--tools:replace="required" />-->
+
+    <!--&lt;!&ndash; jitsi &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />-->
+
+    <!--<uses-feature-->
+        <!--android:name="android.hardware.telephony"-->
+        <!--android:required="false" />-->
+
 
     <application
-        android:name=".app.BaseApplication"
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Default">
-        <activity android:name=".more.MoreListActivity"></activity>
-        <activity android:name=".messaging.MessageDetailActivity" />
+        <activity android:name=".messaging.media.MediaPreviewActivity"></activity>
+        <activity android:name=".messaging.call.CallActivity" />
+        <activity android:name=".more.MoreListActivity" />
+        <activity
+            android:name=".messaging.event.EventActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".post.AddPostActivity" />
         <activity android:name=".register.RegisterProfileActivity" />
         <activity
@@ -34,9 +229,29 @@
         </activity>
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".login.LoginActivity" />
-        <activity android:name=".main.MainActivity" />
+        <activity android:name=".main.MainActivity"
+            android:windowSoftInputMode="stateHidden"/>
 
-        <service android:name="mx.skipjack.service.EventStreamService" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="4a1d5d03ac8e1f216381434cc22b4d6a803f3c6f" />
+
+        <service
+            android:name="support.skipjack.adoi.service.EventStreamService"
+            android:enabled="true" />
+
+        <receiver
+            android:name="support.skipjack.adoi.service.RestartServiceBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Restart_Service">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="support.skipjack.adoi.restartservice" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
