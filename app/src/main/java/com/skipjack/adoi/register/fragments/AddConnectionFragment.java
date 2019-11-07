@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseFragment;
 import com.skipjack.adoi.main.MainActivity;
+import com.skipjack.adoi.startup.StartUpActivity;
 
 import butterknife.OnClick;
 
@@ -21,6 +22,6 @@ public class AddConnectionFragment extends BaseFragment {
 
     @OnClick(R.id.btnNext)
     public void onNextClick(){
-        getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
+        getActivity().startActivity(new Intent(getActivity(), StartUpActivity.class));
     }
 }

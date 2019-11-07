@@ -3,26 +3,25 @@ package com.skipjack.adoi.register;
 
 import androidx.annotation.NonNull;
 
-import com.google.gson.Gson;
-import com.skipjack.adoi.database.AppSharedPreference;
-import mx.skipjack.service.MatrixService;
-import mx.skipjack.service.MatrixCallback;
-import mx.skipjack.service.MxCredentialManager;
+import support.skipjack.adoi.local_storage.AppSharedPreference;
+
+import support.skipjack.adoi.matrix.MatrixCallback;
+import support.skipjack.adoi.repository.CredentialRepository;
 
 import org.matrix.androidsdk.rest.model.login.Credentials;
 
 public class RegisterPresenter extends MatrixCallback<Credentials> {
 
     private RegisterView view;
-    private MxCredentialManager credentialManager;
+    private CredentialRepository credentialRepository;
     public RegisterPresenter(@NonNull RegisterView view) {
         this.view = view;
-        credentialManager = new MxCredentialManager(this);
+        credentialRepository = new CredentialRepository(this);
     }
 
     public void onRegister(String username,String email, String password){
         view.onStartProgress();
-        credentialManager.register(username,email,password);
+        credentialRepository.register(username,email,password);
     }
 
     @Override
@@ -37,11 +36,5 @@ public class RegisterPresenter extends MatrixCallback<Credentials> {
     public void onAPIFailure(String errorMessage) {
         view.onStopProgress();
         view.onRegisterError(errorMessage);
-    }
-
-    @Override
-    public void onAPIMxError(int status, String errorcode, String errorBody) {
-        view.onStopProgress();
-        view.onRegisterError(errorBody);
     }
 }

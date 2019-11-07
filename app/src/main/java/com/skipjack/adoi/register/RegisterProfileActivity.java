@@ -1,12 +1,9 @@
 package com.skipjack.adoi.register;
 
-import android.content.Intent;
-
 import androidx.viewpager.widget.ViewPager;
 
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseAppCompatActivity;
-import com.skipjack.adoi.main.MainActivity;
 
 import butterknife.BindView;
 
