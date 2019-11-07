@@ -2,13 +2,12 @@ package com.skipjack.adoi.startup;
 
 
 import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseAppCompatActivity;
-import com.skipjack.adoi.database.AppSharedPreference;
+
+import support.skipjack.adoi.local_storage.AppSharedPreference;
+
 import com.skipjack.adoi.login.LoginActivity;
 import com.skipjack.adoi.main.MainActivity;
 
@@ -24,12 +23,32 @@ public class StartUpActivity extends BaseAppCompatActivity {
     public void onCreate() {
 
         if (AppSharedPreference.get().hasLoginCredentials()){
-        startActivity(new Intent(this, MainActivity.class));
+            finishAffinity();
+            startActivity(new Intent(StartUpActivity.this, MainActivity.class));
         }else{
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
 
 
+
     }
+
+    @Override
+    protected void onDestroy() {
+
+//        if (AppSharedPreference.get().hasLoginCredentials()){
+//            unregisterReceiver(broadcastReceiver);
+//        }
+        super.onDestroy();
+    }
+
+//    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            finishAffinity();
+//            startActivity(new Intent(StartUpActivity.this, MainActivity.class));
+//        }
+//    };
+
 }
