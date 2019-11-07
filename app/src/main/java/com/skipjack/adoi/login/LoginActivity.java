@@ -1,15 +1,23 @@
 package com.skipjack.adoi.login;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.provider.Settings;
 import android.widget.EditText;
+
+import androidx.annotation.Nullable;
 
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseAppCompatActivity;
+import com.skipjack.adoi.base.BaseApplication;
 import com.skipjack.adoi.register.RegisterActivity;
 import com.skipjack.adoi.startup.StartUpActivity;
 import com.skipjack.adoi.utility.AppUtility;
 
+import org.matrix.androidsdk.core.Log;
 import org.matrix.androidsdk.rest.model.login.Credentials;
 
 import butterknife.BindView;
@@ -46,6 +54,11 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginView {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     @OnClick(R.id.btnMakeAccount)
     public void onMakeAccountClick() {
         startActivity(new Intent(this, RegisterActivity.class));
@@ -67,8 +80,9 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginView {
 
     @Override
     public void onLoginSuccess(Credentials credentials) {
+        BaseApplication.startStreamService();
+        finishAffinity();
         startActivity(new Intent(this, StartUpActivity.class));
-
     }
 
     @Override

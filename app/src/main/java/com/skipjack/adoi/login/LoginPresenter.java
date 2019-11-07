@@ -3,32 +3,31 @@ package com.skipjack.adoi.login;
 
 import androidx.annotation.NonNull;
 
-import com.google.gson.Gson;
-import mx.skipjack.service.MatrixCallback;
-import mx.skipjack.service.MxCredentialManager;
+import support.skipjack.adoi.matrix.MatrixCallback;
+import support.skipjack.adoi.repository.CredentialRepository;
 
-import com.skipjack.adoi.database.AppSharedPreference;
+import support.skipjack.adoi.local_storage.AppSharedPreference;
 
 import org.matrix.androidsdk.rest.model.login.Credentials;
 
 public class LoginPresenter extends MatrixCallback<Credentials> {
     private LoginView view;
-    private MxCredentialManager credentialManager;
+    private CredentialRepository credentialRepository;
 
     public LoginPresenter(@NonNull LoginView view) {
         this.view = view;
-        credentialManager = new MxCredentialManager(this);
+        credentialRepository = new CredentialRepository(this);
 
     }
 
     public void onLogin(boolean isEmail, boolean isPhone, String username, String password){
         view.onStartProgress();
         if (isEmail)
-            credentialManager.loginUsingEmail(username,password);
+            credentialRepository.loginUsingEmail(username,password);
         else if (isPhone)
-            credentialManager.loginUsingPhone(username,password);
+            credentialRepository.loginUsingPhone(username,password);
         else
-            credentialManager.loginUsingUsername(username,password);
+            credentialRepository.loginUsingUsername(username,password);
     }
 
     @Override
@@ -45,9 +44,4 @@ public class LoginPresenter extends MatrixCallback<Credentials> {
         view.onLoginError(errorMessage);
     }
 
-    @Override
-    public void onAPIMxError(int status, String errorcode, String errorBody) {
-        view.onStopProgress();
-        view.onLoginError(errorBody);
-    }
 }
