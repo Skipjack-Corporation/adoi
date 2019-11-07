@@ -1,9 +1,5 @@
 package com.skipjack.adoi.post;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseAppCompatActivity;
 import com.skipjack.adoi.view.AppImageView;
