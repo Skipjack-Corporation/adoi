@@ -5,14 +5,17 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseAppCompatActivity;
+import com.skipjack.adoi.messaging.MessagingFragment;
 import com.skipjack.adoi.connection.ConnectionFragment;
 import com.skipjack.adoi.more.MoreListActivity;
+import com.skipjack.adoi.permission.Permission;
+import com.skipjack.adoi.permission.PermissionManager;
 import com.skipjack.adoi.post.HomeFragment;
-import com.skipjack.adoi.messaging.MessagingFragment;
 import com.skipjack.adoi.notifications.NotificationFragment;
 import com.skipjack.adoi.search.SearchFragment;
 
@@ -24,6 +27,9 @@ public class MainActivity extends BaseAppCompatActivity implements RadioGroup.On
     @BindView(R.id.radioGroupMain) RadioGroup radioGroupMain;
     @BindView(R.id.layoutSearch)
     View layoutSearch;
+
+
+
 
     @Override
     public int getLayoutResource() {
@@ -39,9 +45,23 @@ public class MainActivity extends BaseAppCompatActivity implements RadioGroup.On
                 .replace(R.id.layoutContainer, new SearchFragment())
                 .commit();
 
-
+        if (!PermissionManager.checkPermission(this, Permission.PERMISSION_WRITE_STORAGE,
+                Permission.PERMISSION_READ_STORAGE)){
+            PermissionManager.askPermissions(this, Permission.PERMISSION_WRITE_STORAGE,
+                    Permission.PERMISSION_READ_STORAGE);
+        }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PermissionManager.REQUESTCODE_ASK_PERMISSION){
+            if (!PermissionManager.checkPermission(this, Permission.PERMISSION_WRITE_STORAGE,
+                    Permission.PERMISSION_READ_STORAGE)){
+
+            }
+        }
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
