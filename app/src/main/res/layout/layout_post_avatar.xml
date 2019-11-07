@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.skipjack.adoi.view.AppImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgPostAvatar"
         android:layout_width="@dimen/img_post_size"
         android:layout_height="@dimen/img_post_size"
@@ -14,8 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"/>
+        app:civ_border_width="0.5dp"
+        app:civ_border_color="?attr/color_accent"/>
 
     <ImageView
         android:id="@+id/imgStatus"

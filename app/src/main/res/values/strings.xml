@@ -22,7 +22,7 @@
     <string name="search">Search</string>
     <string name="this_makes_it_easier_to_connect_with_people_and_keep_bots_and_fake_accounts_out">This makes it easier to connect with people \n and keep bots and fake accounts out</string>
     <string name="verify_your_mobile_number">Verify Your Mobile Number</string>
-    <string name="you_should_be_receiving_a_message_shortly_if_not_click_here_to_resend">You should be receiving a message shortly, \n if not <u>Click here to Resend</u></string>
+    <string name="you_should_be_receiving_a_message_shortly_if_not_click_here_to_resend">You should be receiving a eventEntry shortly, \n if not <u>Click here to Resend</u></string>
     <string name="enter_verificationcode">Enter VerificationCode</string>
     <string name="choose_a_photo_and_write_something_on_your_bio">Choose a photo and write \nsomething on your bio</string>
     <string name="next">Next</string>
@@ -44,7 +44,7 @@
     <string name="add_connections">Add Connections</string>
     <string name="create_a_post">Create a post</string>
     <string name="say_something_to_the_world">Say something to the world</string>
-    <string name="display_message_here_messagefield">Display message here <b>#messagefield</b></string>
+    <string name="display_message_here_messagefield">Display eventEntry here <b>#messagefield</b></string>
     <string name="friends">Friends</string>
     <string name="rooms">Rooms</string>
     <string name="community">Community</string>
@@ -71,4 +71,17 @@
     <string name="generic_label_and_value">%1$s: %2$s</string>
     <string name="hs_url">Home Server URL</string>
     <string name="cancel">Cancel</string>
+
+    <string name="attachment_remaining_time_seconds">%d s</string>
+    <string name="attachment_remaining_time_minutes">%1$dm %2$ds</string>
+
+    <string name="startup_notification_privacy_title">Notification Privacy</string>
+    <string name="startup_notification_privacy_message">Adoi can run in the background to manage your notifications securely and privately. This might affect battery usage.</string>
+    <string name="startup_notification_privacy_button_grant">Grant permission</string>
+    <string name="startup_notification_privacy_button_other">Choose another option</string>
+
+
+    <string name="room_one_user_is_typing">%s is typing…</string>
+    <string name="room_two_users_are_typing">%1$s &#038; %2$s are typing…</string>
+    <string name="room_many_users_are_typing">%1$s &#038; %2$s &#038; others are typing…</string>
 </resources>

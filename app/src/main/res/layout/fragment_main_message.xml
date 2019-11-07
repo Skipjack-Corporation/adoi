@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RadioGroup
@@ -65,16 +66,53 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.92" />
 
-    <ImageButton
-        android:id="@+id/imgbtnWriteMessage"
-        android:layout_width="@dimen/add_post_btn_size"
-        android:layout_height="@dimen/add_post_btn_size"
-        android:layout_marginBottom="24dp"
-        android:alpha="0.9"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_write_message"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline20" />
+        app:layout_constraintEnd_toEndOf="parent"
+        fab:fab_addButtonColorNormal="#E6ffffff"
+        fab:fab_addButtonColorPressed="@android:color/white"
+        fab:fab_addButtonPlusIconColor="@android:color/black"
+        fab:fab_addButtonSize="normal"
+        fab:fab_labelStyle="@style/FABTextStyle"
+        fab:fab_labelsPosition="left"
+        tools:ignore="MissingConstraints">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabStartChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@android:color/white"
+            fab:fab_colorPressed="#80FFFFFF"
+            fab:fab_title="Start chat"
+            app:fab_size="mini"
+            app:fab_icon="@drawable/ic_start_chat"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCreateRoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@android:color/white"
+            fab:fab_colorPressed="#80FFFFFF"
+            fab:fab_size="mini"
+            fab:fab_title="Create room"
+            app:fab_icon="@drawable/ic_create_room"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    <!--<ImageButton-->
+        <!--android:id="@+id/imgBtnCreateRoom"-->
+        <!--android:layout_width="@dimen/add_post_btn_size"-->
+        <!--android:layout_height="@dimen/add_post_btn_size"-->
+        <!--android:layout_marginBottom="24dp"-->
+        <!--android:alpha="0.9"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:clickable="true"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/ic_write_message"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/guideline20" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

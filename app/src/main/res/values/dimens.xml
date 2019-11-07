@@ -9,6 +9,7 @@
 
     <dimen name="img_post_size">50dp</dimen>
     <dimen name="img_msg_avatar_size">32dp</dimen>
+    <dimen name="img_msg_filw_size">100dp</dimen>
     <dimen name="post_status_dot_border">2dp</dimen>
     <dimen name="post_status_dot_size">15dp</dimen>
 
@@ -18,4 +19,5 @@
     <dimen name="dropdown_width_size">100dp</dimen>
     <dimen name="messages_tab_height_size">40dp</dimen>
     <dimen name="more_profpic_size">130dp</dimen>
+    <dimen name="chat_avatar_size">40dp</dimen>
 </resources>

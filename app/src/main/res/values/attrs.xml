@@ -46,6 +46,9 @@
 
         <attr name="color_last_display_message" format="color"/>
 
+        <attr name="color_placeholder" format="color"/>
+        <attr name="color_placeholder_trans" format="color"/>
+
 
     </declare-styleable>
 </resources>

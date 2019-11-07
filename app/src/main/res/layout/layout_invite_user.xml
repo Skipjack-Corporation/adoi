@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        style="@style/AppTextStyle.Normal"
+        android:id="@+id/textView25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please enter username."
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        style="@style/AppTextStyle.Edit"
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:inputType="textPersonName"
+        android:hint="Enter username"
+        android:textSize="@dimen/textsize_normal"/>
+</LinearLayout>

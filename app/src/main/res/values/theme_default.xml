@@ -52,7 +52,11 @@
         <item name="color_message_receiver_content">?attr/color_default</item>
 
         <item name="color_message_send">#00c2ff</item>
+
         <item name="color_last_display_message">#00c2ff</item>
+
+        <item name="color_placeholder">#8000c2ff</item>
+        <item name="color_placeholder_trans">#4d00c2ff</item>
 
 
     </style>

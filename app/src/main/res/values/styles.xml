@@ -28,6 +28,10 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
     </style>
 
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@android:color/black</item>
+    </style>
+
     <!--Text and Edit Style-->
     <style name="AppTextStyle">
         <item name="android:fontFamily">@font/font_opensans_light</item>
@@ -125,12 +129,12 @@
 
     <style name="AppTextStyle.Message.Name" parent="AppTextStyle">
         <item name="android:fontFamily">@font/font_myriadpro_bold</item>
-        <item name="android:textSize">@dimen/textsize_medium</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
         <item name="android:textColor">?color_message_sender_name</item>
     </style>
     <style name="AppTextStyle.Message.Date" parent="AppTextStyle">
         <item name="android:fontFamily">@font/font_myriadpro_regular</item>
-        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
         <item name="android:textColor">?attr/color_message_sender_date</item>
     </style>
     <style name="AppTextStyle.Message.Content" parent="AppTextStyle">
@@ -140,12 +144,12 @@
     </style>
     <style name="AppTextStyle.Message.Name.Receiver" parent="AppTextStyle.Message.Name">
         <item name="android:fontFamily">@font/font_myriadpro_bold</item>
-        <item name="android:textSize">@dimen/textsize_medium</item>
+        <item name="android:textSize">@dimen/textsize_normal</item>
         <item name="android:textColor">?color_message_receiver_name</item>
     </style>
     <style name="AppTextStyle.Message.Date.Receiver" parent="AppTextStyle.Message.Date">
         <item name="android:fontFamily">@font/font_myriadpro_regular</item>
-        <item name="android:textSize">@dimen/textsize_normal</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
         <item name="android:textColor">?attr/color_message_receiver_date</item>
     </style>
     <style name="AppTextStyle.Message.Content.Receiver" parent="AppTextStyle.Message.Content">
@@ -191,5 +195,9 @@
         <item name="android:textSize">@dimen/textsize_normal</item>
         <item name="android:textColor">?attr/color_text_default</item>
         <item name="android:background">@drawable/selector_spinner_bg</item>
+    </style>
+    <style name="FABTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+
     </style>
 </resources>
