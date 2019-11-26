@@ -21,6 +21,8 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="windowActionBarOverlay">false</item>
+        <item name="popupMenuStyle">@style/PopupMenuStyle</item>
+        <item name="android:popupMenuStyle">@style/PopupMenuStyle</item>
     </style>
     <style name="SplashTheme" parent="AppTheme.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
@@ -30,6 +32,10 @@
 
     <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@android:color/black</item>
+    </style>
+
+    <style name="PopupMenuStyle" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">?attr/color_actionbar_main</item>
     </style>
 
     <!--Text and Edit Style-->

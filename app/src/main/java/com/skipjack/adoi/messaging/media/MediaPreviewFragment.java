@@ -1,11 +1,7 @@
 package com.skipjack.adoi.messaging.media;
 
 import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -14,14 +10,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.VideoView;
 
-import androidx.annotation.Nullable;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.google.gson.JsonElement;
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseFragment;
@@ -38,11 +29,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import support.skipjack.adoi.matrix.MatrixService;
-import support.skipjack.adoi.matrix.MatrixUtility;
 
-import static support.skipjack.adoi.matrix.MatrixUtility.LOG_TAG;
+import static support.skipjack.adoi.matrix.MatrixHelper.LOG_TAG;
 
 public class MediaPreviewFragment extends BaseFragment {
     @BindView(R.id.imgImageMedia)

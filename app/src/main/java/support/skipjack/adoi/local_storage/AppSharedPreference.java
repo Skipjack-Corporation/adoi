@@ -19,6 +19,7 @@ public class AppSharedPreference {
 
     private static final String NAME = "Adoi_shared_pref_v1";
     private static final String KEY_CREDENTIAL = "loginCredentials";
+    private static final String KEY_MESSAGING_BADGECOUNT = "messagingCount";
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -44,5 +45,13 @@ public class AppSharedPreference {
 
     public boolean hasLoginCredentials(){
         return  getLoginCredential() != null;
+    }
+
+    public void setMessagingCount(int count){
+        editor.putInt(KEY_MESSAGING_BADGECOUNT,count);
+        editor.commit();
+    }
+    public int getMessaingCount(){
+        return sharedPreferences.getInt(KEY_MESSAGING_BADGECOUNT,0);
     }
 }

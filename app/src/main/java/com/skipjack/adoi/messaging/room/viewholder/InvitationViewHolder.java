@@ -4,14 +4,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.skipjack.adoi.R;
 import com.skipjack.adoi.base.BaseAppCompatActivity;
-import com.skipjack.adoi.messaging.room.viewholder.AbsRViewHolder;
 import com.skipjack.adoi.utility.AppUtility;
 
 import org.matrix.androidsdk.data.Room;
@@ -19,8 +17,8 @@ import org.matrix.androidsdk.data.RoomSummary;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import support.skipjack.adoi.matrix.MatrixCallback;
+import support.skipjack.adoi.matrix.MatrixHelper;
 import support.skipjack.adoi.matrix.MatrixService;
-import support.skipjack.adoi.matrix.MatrixUtility;
 
 public class InvitationViewHolder extends AbsRViewHolder implements View.OnClickListener {
     public TextView textDisplayName;
@@ -51,7 +49,7 @@ public class InvitationViewHolder extends AbsRViewHolder implements View.OnClick
         this.room = room;
         textDisplayName.setText(room.getRoomDisplayName(MatrixService.get().getContext()));
         RoomSummary roomSummary = room.getRoomSummary();
-        textDate.setText(MatrixUtility.getRoomTimestamp(roomSummary.getLatestReceivedEvent().originServerTs));
+        textDate.setText(MatrixHelper.getTimestampToString(roomSummary.getLatestReceivedEvent().originServerTs));
         textMessage.setText(MatrixService.get().getRoomMessageDisplay(room));
 
         int size = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.img_post_size);

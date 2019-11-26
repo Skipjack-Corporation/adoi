@@ -26,10 +26,11 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import support.skipjack.adoi.matrix.MatrixUtility;
+import support.skipjack.adoi.matrix.MatrixHelper;
 import support.skipjack.adoi.matrix.MatrixCallback;
 import support.skipjack.adoi.matrix.MatrixService;
-import support.skipjack.adoi.repository.RoomRepository;
+import com.skipjack.adoi._repository.RoomRepository;
+import com.skipjack.adoi.view.InviteUserDialog;
 
 public class MessagingFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
@@ -49,14 +50,14 @@ public class MessagingFragment extends BaseFragment implements RadioGroup.OnChec
     @Override
     public void onCreateView() {
         radioGroupMessages.setOnCheckedChangeListener(this);
-        if (adapter == null){
+//        if (adapter == null){
             adapter = new MessagingAdapter(getChildFragmentManager());
             viewPager.setAdapter(adapter);
             viewPager.addOnPageChangeListener(this);
-        }else {
-            adapter.update();
-            adapter.notifyDataSetChanged();
-        }
+//        }else {
+//            adapter.update();
+//            adapter.notifyDataSetChanged();
+//        }
 
 
 
@@ -85,6 +86,7 @@ public class MessagingFragment extends BaseFragment implements RadioGroup.OnChec
     public void onPause() {
         super.onPause();
     }
+
     @OnClick(R.id.fabCreateRoom)
     public void onCreateRoom(){
         showProgressDialog();
@@ -97,7 +99,6 @@ public class MessagingFragment extends BaseFragment implements RadioGroup.OnChec
 
                 Intent intent = new Intent(getActivity(), EventActivity.class);
                 intent.putExtra(Constants.KEY_ROOM_ID,room.getRoomId());
-                intent.putExtra(Constants.KEY_ROOM_NAME,room.getRoomDisplayName(MatrixService.get().getContext()));
                 hideProgressDialog();
                 getActivity().startActivity(intent);
             }
@@ -112,70 +113,86 @@ public class MessagingFragment extends BaseFragment implements RadioGroup.OnChec
 
     @OnClick(R.id.fabStartChat)
     public void onCreateDirectChat(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity(), R.style.AppDialogTheme);
-        View view = getLayoutInflater().inflate(R.layout.layout_invite_user,null);
-        final EditText edittext = view.findViewById(R.id.editText);
-        alert.setTitle("Invite User");
 
-        alert.setView(view);
+        InviteUserDialog.show(this.getActivity(), new InviteUserDialog.Callback() {
+            @Override
+            public void onSuccess(Room room) {
+                Intent intent = new Intent(getActivity(), EventActivity.class);
+                intent.putExtra(Constants.KEY_ROOM_ID,room.getRoomId());
+                intent.putExtra(Constants.KEY_ROOM_NAME,room.getRoomDisplayName(MatrixService.get().getContext()));
+                hideProgressDialog();
+                getActivity().startActivity(intent);
+            }
 
-        alert.setPositiveButton("Invite", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                showProgressDialog();
-                String text = edittext.getText().toString();
-                if (!text.substring(0,1).equals("@")){
-                    text = "@" + text;
-                }
-
-                if (!text.contains(":adoichat.com")){
-                    text = text+":adoichat.com";
-                }
-                List<Pattern> patterns = Arrays.asList(MXPatterns.PATTERN_CONTAIN_MATRIX_USER_IDENTIFIER, android.util.Patterns.EMAIL_ADDRESS);
-
-                for (Pattern pattern : patterns) {
-                    Matcher matcher = pattern.matcher(text);
-                    while (matcher.find()) {
-                        try {
-                            String userId = text.substring(matcher.start(0), matcher.end(0));
-                            MatrixService.get().mxSession.createDirectMessageRoom(userId, new MatrixCallback<String>() {
-                                @Override
-                                public void onAPISuccess(String data) {
-                                    Room room = MatrixService.get().mxSession.getDataHandler()
-                                            .getStore().getRoom(data);
-                                    RoomRepository.insertRoomsToDB(room);
-
-                                    Intent intent = new Intent(getActivity(), EventActivity.class);
-                                    intent.putExtra(Constants.KEY_ROOM_ID,room.getRoomId());
-                                    intent.putExtra(Constants.KEY_ROOM_NAME,room.getRoomDisplayName(MatrixService.get().getContext()));
-                                    hideProgressDialog();
-                                    getActivity().startActivity(intent);
-                                }
-
-                                @Override
-                                public void onAPIFailure(String errorMessage) {
-                                    dialog.dismiss();
-                                    hideProgressDialog();
-                                    Toast.makeText(getActivity(),errorMessage,Toast.LENGTH_LONG).show();
-                                }
-                            });
-                        } catch (Exception e) {
-                            MatrixUtility.LOG("## displayInviteByUserId() " + e.getMessage());
-                            hideProgressDialog();
-                            Toast.makeText(getActivity(),"Failed to find user.",Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }
+            @Override
+            public void onFailed(String message) {
+                Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
             }
         });
-
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.dismiss();
-                // what ever you want to do with No option.
-            }
-        });
-
-        alert.show();
+//        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity(), R.style.AppDialogTheme);
+//        View view = getLayoutInflater().inflate(R.layout.layout_invite_user,null);
+//        final EditText edittext = view.findViewById(R.id.editText);
+//        alert.setTitle("Invite User");
+//
+//        alert.setView(view);
+//
+//        alert.setPositiveButton("Invite", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//                showProgressDialog();
+//                String text = edittext.getText().toString();
+//                if (!text.substring(0,1).equals("@")){
+//                    text = "@" + text;
+//                }
+//
+//                if (!text.contains(":adoichat.com")){
+//                    text = text+":adoichat.com";
+//                }
+//                List<Pattern> patterns = Arrays.asList(MXPatterns.PATTERN_CONTAIN_MATRIX_USER_IDENTIFIER, android.util.Patterns.EMAIL_ADDRESS);
+//
+//                for (Pattern pattern : patterns) {
+//                    Matcher matcher = pattern.matcher(text);
+//                    while (matcher.find()) {
+//                        try {
+//                            String userId = text.substring(matcher.start(0), matcher.end(0));
+//                            MatrixService.get().mxSession.createDirectMessageRoom(userId, new MatrixCallback<String>() {
+//                                @Override
+//                                public void onAPISuccess(String data) {
+//                                    Room room = MatrixService.get().mxSession.getDataHandler()
+//                                            .getStore().getRoom(data);
+//                                    RoomRepository.insertRoomsToDB(room);
+//
+//                                    Intent intent = new Intent(getActivity(), EventActivity.class);
+//                                    intent.putExtra(Constants.KEY_ROOM_ID,room.getRoomId());
+//                                    intent.putExtra(Constants.KEY_ROOM_NAME,room.getRoomDisplayName(MatrixService.get().getContext()));
+//                                    hideProgressDialog();
+//                                    getActivity().startActivity(intent);
+//                                }
+//
+//                                @Override
+//                                public void onAPIFailure(String errorMessage) {
+//                                    dialog.dismiss();
+//                                    hideProgressDialog();
+//                                    Toast.makeText(getActivity(),errorMessage,Toast.LENGTH_LONG).show();
+//                                }
+//                            });
+//                        } catch (Exception e) {
+//                            MatrixHelper.LOG("## displayInviteByUserId() " + e.getMessage());
+//                            hideProgressDialog();
+//                            Toast.makeText(getActivity(),"Failed to find user.",Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                }
+//            }
+//        });
+//
+//        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int whichButton) {
+//                dialog.dismiss();
+//                // what ever you want to do with No option.
+//            }
+//        });
+//
+//        alert.show();
     }
 
 

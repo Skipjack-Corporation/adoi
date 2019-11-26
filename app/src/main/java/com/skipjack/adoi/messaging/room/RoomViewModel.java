@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 import org.matrix.androidsdk.data.Room;
 import java.util.List;
 import support.skipjack.adoi.model.RoomTabType;
-import support.skipjack.adoi.repository.RoomRepository;
+import com.skipjack.adoi._repository.RoomRepository;
 
 public class RoomViewModel extends ViewModel implements RoomRepository.Callback {
     public MutableLiveData<List<Room>> liveRoomList = new MutableLiveData<>();

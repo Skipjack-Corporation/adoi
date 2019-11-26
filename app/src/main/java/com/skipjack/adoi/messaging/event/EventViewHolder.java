@@ -1,6 +1,5 @@
 package com.skipjack.adoi.messaging.event;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.ExifInterface;
@@ -20,9 +19,6 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 import com.skipjack.adoi.R;
-import com.skipjack.adoi.base.Constants;
-import com.skipjack.adoi.messaging.media.MediaPreviewActivity;
-import com.skipjack.adoi.messaging.media.SlidableMediaInfo;
 
 import org.matrix.androidsdk.adapters.MessageRow;
 import org.matrix.androidsdk.core.EventDisplay;
@@ -39,11 +35,8 @@ import org.matrix.androidsdk.rest.model.message.StickerMessage;
 import org.matrix.androidsdk.rest.model.message.VideoInfo;
 import org.matrix.androidsdk.rest.model.message.VideoMessage;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.hdodenhof.circleimageview.CircleImageView;
-import support.skipjack.adoi.matrix.MatrixUtility;
+import support.skipjack.adoi.matrix.MatrixHelper;
 import support.skipjack.adoi.matrix.MatrixService;
 
 public class EventViewHolder extends RecyclerView.ViewHolder {
@@ -72,7 +65,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
         IMXStore roomStore = MatrixService.get().mxSession.getDataHandler().getStore();
         RoomState roomState = roomStore.getRoom(event.roomId).getState();
         textName.setText(roomState.getMemberName(event.sender));
-        textDate.setText(MatrixService.getTimestampToString(event.getOriginServerTs()));
+        textDate.setText(MatrixHelper.getTimestampToString(event.getOriginServerTs()));
 
 
         int size = itemView.getContext().getResources().getDimensionPixelSize(R.dimen.img_msg_avatar_size);
@@ -112,8 +105,8 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
             }break;
         }
 
-        MatrixUtility.LOG("eventType:"+event.getType());
-        MatrixUtility.LOG("msgType:"+ eventMsgType);
+        MatrixHelper.LOG("eventType:"+event.getType());
+        MatrixHelper.LOG("msgType:"+ eventMsgType);
         switch (eventMsgType){
             case MSGTYPE_TEXT:{
                 setTextView(contentView,event, roomState);
@@ -211,7 +204,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
             }
 
         } catch (Exception e) {
-            MatrixUtility.LOG("## getImageVideoView() failed : " + e.getMessage());
+            MatrixHelper.LOG("## getImageVideoView() failed : " + e.getMessage());
         }
 
         imgPhoto.setOnClickListener(new View.OnClickListener() {
@@ -327,7 +320,7 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
 
 
         } catch (Exception e) {
-            MatrixUtility.LOG( "## getFileView() failed " + e.getMessage());
+            MatrixHelper.LOG( "## getFileView() failed " + e.getMessage());
         }
 
     }

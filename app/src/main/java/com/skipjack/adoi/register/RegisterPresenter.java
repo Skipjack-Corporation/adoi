@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import support.skipjack.adoi.local_storage.AppSharedPreference;
 
 import support.skipjack.adoi.matrix.MatrixCallback;
-import support.skipjack.adoi.repository.CredentialRepository;
+import com.skipjack.adoi._repository.CredentialRepository;
 
 import org.matrix.androidsdk.rest.model.login.Credentials;
 

@@ -61,7 +61,7 @@ public class GroupFragment extends BaseFragment {
             setNoResultView(true);
             return;
         }else if (groupList.size() == 0){
-            setNoResultView(false);
+            setNoResultView(true);
             return;
         }
 

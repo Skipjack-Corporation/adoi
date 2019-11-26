@@ -104,7 +104,7 @@
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
     <!--<ImageButton-->
-        <!--android:id="@+id/imgBtnCreateRoom"-->
+        <!--android:id="@+id/btnCreateRoom"-->
         <!--android:layout_width="@dimen/add_post_btn_size"-->
         <!--android:layout_height="@dimen/add_post_btn_size"-->
         <!--android:layout_marginBottom="24dp"-->

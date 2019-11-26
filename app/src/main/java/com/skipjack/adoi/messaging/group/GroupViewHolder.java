@@ -1,26 +1,18 @@
 package com.skipjack.adoi.messaging.group;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.skipjack.adoi.R;
-import com.skipjack.adoi.base.Constants;
-import com.skipjack.adoi.messaging.event.EventActivity;
-import com.skipjack.adoi.messaging.room.viewholder.AbsRViewHolder;
 
-import org.matrix.androidsdk.data.Room;
-import org.matrix.androidsdk.data.RoomSummary;
 import org.matrix.androidsdk.rest.model.group.Group;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import support.skipjack.adoi.matrix.MatrixService;
-import support.skipjack.adoi.matrix.MatrixUtility;
 
 public class GroupViewHolder extends AbsGViewHolder {
     public TextView textDisplayName;

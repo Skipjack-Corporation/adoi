@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.skipjack.adoi.R;
 
 import butterknife.ButterKnife;
-import support.skipjack.adoi.repository.CallRespository;
+import com.skipjack.adoi._repository.CallRespository;
 
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
 

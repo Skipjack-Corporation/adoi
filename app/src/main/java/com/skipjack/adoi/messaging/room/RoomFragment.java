@@ -42,17 +42,17 @@ public class RoomFragment extends BaseFragment implements Observer<List<Room>> {
         if (getArguments() != null){
             roomTabType = (RoomTabType) getArguments().getSerializable(Constants.ARG_ROOM_TYPE);
         }
+
         roomViewModel = ViewModelProviders.of(this, new RoomViewModelFactory(roomTabType))
                 .get(RoomViewModel.class);
         roomViewModel.loadRooms();
         roomViewModel.liveRoomList.observe(this,this);
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
+        roomViewModel.loadRooms();
     }
 
     @Override
@@ -66,17 +66,18 @@ public class RoomFragment extends BaseFragment implements Observer<List<Room>> {
             setNoResultView(true);
             return;
         }else if (roomList.size() == 0){
-            setNoResultView(false);
+            setNoResultView(true);
             return;
         }
 
         setNoResultView(false);
-        if (adapter == null){
+//        if (adapter == null){
             adapter = new RoomAdapter(new ArrayList<>(roomList));
             recyclerView.setAdapter(adapter);
-        }else {
-            adapter.update(roomList);
-        }
+//        }else {
+//            adapter.update(roomList);
+//            adapter.notifyDataSetChanged();
+//        }
     }
     private void setNoResultView(boolean noResult){
         if (!noResult){

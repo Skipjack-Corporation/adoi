@@ -11,12 +11,16 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,13 +33,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
 import com.skipjack.adoi.R;
 
 import butterknife.OnClick;
-import support.skipjack.adoi.matrix.MatrixUtility;
-import support.skipjack.adoi.repository.CallRespository;
-import support.skipjack.adoi.repository.EventManager;
+import support.skipjack.adoi.matrix.MatrixHelper;
+
+import com.skipjack.adoi._repository.CallRespository;
+import com.skipjack.adoi._repository.EventManager;
 import support.skipjack.adoi.matrix.MatrixCallback;
 import support.skipjack.adoi.matrix.MatrixService;
 import com.skipjack.adoi.base.BaseAppCompatActivity;
@@ -43,12 +47,15 @@ import com.skipjack.adoi.base.Constants;
 import com.skipjack.adoi.messaging.call.CallActivity;
 import com.skipjack.adoi.messaging.media.MediaPreviewActivity;
 import com.skipjack.adoi.messaging.media.SlidableMediaInfo;
+import com.skipjack.adoi.messaging.room.details.RoomDetailActivity;
 import com.skipjack.adoi.permission.Permission;
 import com.skipjack.adoi.permission.PermissionManager;
 import com.skipjack.adoi.utility.AppUtility;
 
 import org.matrix.androidsdk.call.IMXCall;
 import org.matrix.androidsdk.core.JsonUtils;
+import org.matrix.androidsdk.core.Log;
+import org.matrix.androidsdk.core.model.MatrixError;
 import org.matrix.androidsdk.data.RoomMediaMessage;
 import org.matrix.androidsdk.rest.model.Event;
 import org.matrix.androidsdk.rest.model.message.FileMessage;
@@ -83,7 +90,7 @@ public class EventActivity extends BaseAppCompatActivity implements SwipeRefresh
     @BindView(R.id.textNoResult) TextView textNoResult;
 
 
-    private String roomName;
+    private String roomName = "Chat room";
     private String roomId;
     private EventsAdapter adapter;
     private EventManager eventManager;
@@ -102,8 +109,11 @@ public class EventActivity extends BaseAppCompatActivity implements SwipeRefresh
 
         swipeTop.setOnRefreshListener(this);
 
-        roomName = getIntent().getStringExtra(Constants.KEY_ROOM_NAME);
-        roomId = getIntent().getStringExtra(Constants.KEY_ROOM_ID);
+        //Intent extras
+        if (getIntent() != null){
+            roomId = getIntent().getStringExtra(Constants.KEY_ROOM_ID);
+            roomName = MatrixService.get().getRoomDisplayName(roomId);
+        }
 
         textActionbarTitle.setText(roomName);
 
@@ -214,6 +224,33 @@ public class EventActivity extends BaseAppCompatActivity implements SwipeRefresh
         finish();
     }
 
+    @OnClick(R.id.imgBtnMore)
+    public void onMore(View v ){
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_events, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menuRoomDetails:
+                        Log.e("Menu","Roomdetails");
+                        Intent intent = new Intent(EventActivity.this, RoomDetailActivity.class);
+                        intent.putExtra(Constants.KEY_ROOM_ID, roomId);
+                        startActivity(intent);
+                        return true;
+                    case R.id.menuLeave:
+                        leaveRoomConfirmDialog();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+        popup.show();
+    }
+
     @OnClick(R.id.btnSend)
     public void onSend(){
         String message = editWrite.getText().toString().trim();
@@ -224,7 +261,7 @@ public class EventActivity extends BaseAppCompatActivity implements SwipeRefresh
     }
     @Override
     public void onRefresh() {
-        MatrixUtility.LOG("onRefresh ");
+        MatrixHelper.LOG("onRefresh ");
         eventManager.pullPreviousEvents();
     }
 
@@ -257,6 +294,35 @@ public class EventActivity extends BaseAppCompatActivity implements SwipeRefresh
     @OnClick(R.id.imgBtnVideoCall)
     public void onVideoCall(){
         startCallInRoom(true);
+    }
+
+    public void leaveRoomConfirmDialog(){
+        new AlertDialog.Builder(this,AlertDialog.THEME_HOLO_DARK)
+                .setTitle("Leave Room")
+                .setMessage("Are you sure you want to leave the room.")
+                .setPositiveButton("Leave", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        showProgressDialog();
+
+                        MatrixService.get().getRoom(roomId).leave(new MatrixCallback<Void>() {
+                            @Override
+                            public void onAPISuccess(Void data) {
+                                 finish();
+                            }
+
+                            @Override
+                            public void onAPIFailure(String errorMessage) {
+                                hideProgressDialog();
+                                if (errorMessage != null){
+                                    AppUtility.toast(EventActivity.this,errorMessage);
+                                }
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
     }
 
     private void startCallInRoom(boolean isVideoCall){
@@ -540,7 +606,7 @@ public class EventActivity extends BaseAppCompatActivity implements SwipeRefresh
             }
         }
 
-        MatrixUtility.LOG("progress: "+progress);
+        MatrixHelper.LOG("progress: "+progress);
         if (view != null){
             ((ProgressBar)view.findViewById(R.id.progressBar)).setProgress(progress);
             if (mimeType.contains("image/")){

@@ -17,7 +17,7 @@ import support.skipjack.adoi.matrix.MatrixService;
 import support.skipjack.adoi.local_storage.AppDatabase;
 import support.skipjack.adoi.local_storage.AppSharedPreference;
 
-import support.skipjack.adoi.service.EventStreamService;
+import support.skipjack.adoi.matrix.service.MatrixEventService;
 
 
 public class BaseApplication extends Application {
@@ -72,7 +72,7 @@ public class BaseApplication extends Application {
 
     public static void startStreamService(){
         if (AppSharedPreference.get().hasLoginCredentials()){
-            Intent serviceIntent =  new Intent(context, EventStreamService.class);
+            Intent serviceIntent =  new Intent(context, MatrixEventService.class);
 //            context.startService(serviceIntent);
             ContextCompat.startForegroundService(context, serviceIntent);
 

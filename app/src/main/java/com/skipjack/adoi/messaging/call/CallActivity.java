@@ -1,19 +1,10 @@
 package com.skipjack.adoi.messaging.call;
 
 
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.telecom.Call;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -25,7 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.widget.ImageViewCompat;
 
 import com.bumptech.glide.Glide;
 import com.skipjack.adoi.R;
@@ -43,17 +33,14 @@ import org.matrix.androidsdk.call.VideoLayoutConfiguration;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import support.skipjack.adoi.local_storage.AppSharedPreference;
+import support.skipjack.adoi.matrix.MatrixHelper;
 import support.skipjack.adoi.matrix.MatrixService;
-import support.skipjack.adoi.matrix.MatrixUtility;
-import support.skipjack.adoi.repository.CallRespository;
-import support.skipjack.adoi.service.EventStreamService;
+import com.skipjack.adoi._repository.CallRespository;
 
 public class CallActivity extends BaseAppCompatActivity {
     private static final String EXTRA_LOCAL_FRAME_LAYOUT = "EXTRA_LOCAL_FRAME_LAYOUT";
@@ -295,7 +282,7 @@ public class CallActivity extends BaseAppCompatActivity {
 
     @OnClick(R.id.imgBtnRejectCall)
     public void onRejectCall(){
-        MatrixUtility.LOG("onRejectCall");
+        MatrixHelper.LOG("onRejectCall");
         CallRespository.get().rejectCall();
     }
 
@@ -494,7 +481,7 @@ public class CallActivity extends BaseAppCompatActivity {
         }, 1000);
     }
     private void updateCallViewLayout(){
-        MatrixUtility.LOG("MITCH_TEST","State: "+mxCall.getCallState());
+        MatrixHelper.LOG("MITCH_TEST","State: "+mxCall.getCallState());
         String callState = mxCall.getCallState();
         switch (callState) {
             case IMXCall.CALL_STATE_RINGING:{

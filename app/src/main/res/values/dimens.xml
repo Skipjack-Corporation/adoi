@@ -12,6 +12,7 @@
     <dimen name="img_msg_filw_size">100dp</dimen>
     <dimen name="post_status_dot_border">2dp</dimen>
     <dimen name="post_status_dot_size">15dp</dimen>
+    <dimen name="post_status_dot_size_small">10dp</dimen>
 
     <dimen name="add_post_btn_size">50dp</dimen>
     <dimen name="write_post_height_size">150dp</dimen>

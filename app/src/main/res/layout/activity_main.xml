@@ -20,8 +20,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="16dp">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -33,64 +32,93 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_logo_small" />
 
-            <RadioGroup
-                android:id="@+id/radioGroupMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/radioGroupMain"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintTop_toTopOf="parent">-->
 
-                <RadioButton
-                    android:id="@+id/rbtnSearchMain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:button="@drawable/selector_main_search"
-                    android:checked="true" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rbtnSearchMain"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginEnd="6dp"-->
+                    <!--android:button="@drawable/selector_main_search"-->
+                    <!--android:checked="true" />-->
 
-                <RadioButton
-                    android:id="@+id/rbtnHome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:button="@drawable/selector_main_home" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rbtnHome"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginEnd="6dp"-->
+                    <!--android:button="@drawable/selector_main_home" />-->
 
-                <RadioButton
-                    android:id="@+id/rbtnRequests"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:button="@drawable/selector_main_request" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rbtnRequests"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginEnd="6dp"-->
+                    <!--android:button="@drawable/selector_main_request" />-->
 
-                <RadioButton
-                    android:id="@+id/rbtnNotifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:button="@drawable/selector_main_notif" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rbtnNotifications"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginEnd="6dp"-->
+                    <!--android:button="@drawable/selector_main_notif" />-->
 
-                <RadioButton
-                    android:id="@+id/rbtnMessages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:button="@drawable/selector_main_messages" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rbtnMessages"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginEnd="6dp"-->
+                    <!--android:button="@drawable/selector_main_messages"-->
+                    <!--android:focusable="true"/>-->
 
-                <RadioButton
-                    android:id="@+id/rbtnMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/selector_main_more" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rbtnMore"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:button="@drawable/selector_main_more" />-->
+            <!--</RadioGroup>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
+    <androidx.fragment.app.FragmentTabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"/>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?actionBarSize"></FrameLayout>
+        </LinearLayout>
+
+    </androidx.fragment.app.FragmentTabHost>
+    <include layout="@layout/layout_search"
         android:id="@+id/layoutSearch"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
@@ -98,35 +126,18 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
-        <EditText
-            android:id="@+id/editSearch"
-            style="@style/AppTextStyle.Edit.Search"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/search"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--<FrameLayout-->
+        <!--android:id="@+id/layoutContainer"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/layoutSearch">-->
 
-    <FrameLayout
-        android:id="@+id/layoutContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutSearch">
-
-    </FrameLayout>
+    <!--</FrameLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,7 +39,7 @@
         <item name="color_status_donotdisturb">#ff0000</item>
 
         <item name="color_message_tab_bg">#66000000</item>
-        <item name="color_unread_message_bg">#18cd36</item>
+        <item name="color_unread_message_bg">#19cd37</item>
 
         <item name="color_message_detail_bg">?attr/color_accent</item>
 

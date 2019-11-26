@@ -16,7 +16,7 @@ import org.matrix.androidsdk.data.Room;
 import java.util.ArrayList;
 import java.util.List;
 
-import support.skipjack.adoi.matrix.MatrixUtility;
+import support.skipjack.adoi.matrix.MatrixHelper;
 import support.skipjack.adoi.model.RoomItemType;
 
 public class RoomAdapter extends RecyclerView.Adapter<AbsRViewHolder> {
@@ -30,9 +30,8 @@ public class RoomAdapter extends RecyclerView.Adapter<AbsRViewHolder> {
     public void update(List<Room> list) {
 //        RoomDiffCallback diffCallback = new RoomDiffCallback(this.list,list);
 //        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
-        this.list.clear();
-        this.list.addAll(list);
-        notifyDataSetChanged();
+
+        this.list = list;
 //        diffResult.dispatchUpdatesTo(this);
     }
 
@@ -67,7 +66,7 @@ public class RoomAdapter extends RecyclerView.Adapter<AbsRViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        return MatrixUtility.getRoomItemType(list.get(position)).getType();
+        return MatrixHelper.getRoomItemType(list.get(position)).getType();
     }
 
     @Override

@@ -1,7 +1,5 @@
 package support.skipjack.adoi.matrix;
 
-import com.google.gson.Gson;
-
 import org.matrix.androidsdk.core.callback.ApiCallback;
 import org.matrix.androidsdk.core.model.MatrixError;
 
@@ -24,7 +22,7 @@ public abstract class MatrixCallback<T> implements ApiCallback<T> {
     @Override
     public void onNetworkError(Exception e) {
        e.printStackTrace();
-       MatrixUtility.LOG("onNetworkError : "+e.getLocalizedMessage());
+       MatrixHelper.LOG("onNetworkError : "+e.getLocalizedMessage());
 
        matrixError = null;
        exception = e;
@@ -42,12 +40,12 @@ public abstract class MatrixCallback<T> implements ApiCallback<T> {
 //
 //                @Override
 //                public void onIgnore() {
-//                    MatrixUtility.LOG("onIgnore");
+//                    MatrixHelper.LOG("onIgnore");
 //                }
 //
 //                @Override
 //                public void onReject() {
-//                    MatrixUtility.LOG("onReject");
+//                    MatrixHelper.LOG("onReject");
 //                }
 //            });
 //
@@ -58,7 +56,7 @@ public abstract class MatrixCallback<T> implements ApiCallback<T> {
 
     @Override
     public void onMatrixError(MatrixError matrixError) {
-        MatrixUtility.LOG("MatrixError : status = "+matrixError.mStatus+", " +
+        MatrixHelper.LOG("MatrixError : status = "+matrixError.mStatus+", " +
                 "errcode = "+matrixError.errcode+", errorBody = "+matrixError.mErrorBodyAsString);
 
         matrixError = matrixError;
@@ -70,7 +68,7 @@ public abstract class MatrixCallback<T> implements ApiCallback<T> {
     @Override
     public void onUnexpectedError(Exception e) {
         e.printStackTrace();
-        MatrixUtility.LOG("onUnexpectedError : "+e.getLocalizedMessage());
+        MatrixHelper.LOG("onUnexpectedError : "+e.getLocalizedMessage());
 
         matrixError = null;
         exception = e;
@@ -80,7 +78,7 @@ public abstract class MatrixCallback<T> implements ApiCallback<T> {
 
     @Override
     public void onSuccess(T t) {
-//        MatrixUtility.LOG("onSuccess : "+ new Gson().toJson(t));
+//        MatrixHelper.LOG("onSuccess : "+ new Gson().toJson(t));
         onAPISuccess(t);
     }
 }
